@@ -1,0 +1,55 @@
+Ultralytics 8.4.26 🚀 Python-3.12.12 torch-2.10.0+cu128 CUDA:0 (Tesla T4, 14913MiB)
+engine/trainer: agnostic_nms=False, amp=True, batch=16, ..., epochs=150, imgsz=640, lr0=0.01, model=yolo11n.pt, optimizer=auto, patience=30
+Overriding model.yaml nc=80 with nc=3
+
+YOLO11n summary: 182 layers, 2,590,425 parameters, 2,590,409 gradients, 6.4 GFLOPs
+
+Transferred 448/499 items from pretrained weights
+Freezing layer 'model.23.dfl.conv.weight'
+AMP: checks passed ✅
+train: Scanning /content/dataset/labels/train... 1296 images, 0 backgrounds, 0 corrupt
+val: Scanning /content/dataset/labels/val... 144 images, 0 backgrounds, 0 corrupt
+optimizer: 'optimizer=auto' found, ignoring 'lr0=0.01' and 'momentum=0.937' and determining best 'optimizer', 'lr0' and 'momentum' automatically...
+optimizer: AdamW(lr=0.001429, momentum=0.9) with parameter groups 81 weight(decay=0.0), 88 weight(decay=0.0005), 87 bias(decay=0.0)
+Image sizes 640 train, 640 val
+Using 2 dataloader workers
+Starting training for 150 epochs...
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+      1/150      2.26G      1.369      2.216       1.27        114        640
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95)
+                   all        144        490      0.716      0.266      0.359      0.268
+
+      Epoch   GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+     50/150      2.37G      0.969      0.615       0.997        114        640
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95)
+                   all        144        490      0.892      0.788      0.854      0.576
+
+      Epoch   GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+    100/150      2.37G      0.838      0.500       0.946        100        640
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95)
+                   all        144        490      0.911      0.852      0.904      0.615
+
+      Epoch   GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+    129/150      2.37G      0.763      0.441       0.923         98        640
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95)
+                   all        144        490      0.912      0.899      0.921      0.630
+
+      Epoch   GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+    150/150      2.37G      0.758      0.405       0.894         59        640
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95)
+                   all        144        490      0.905      0.886      0.911      0.629
+
+150 epochs completed in 4.351 hours.
+Optimizer stripped from weights/last.pt, 5.5MB
+Optimizer stripped from weights/best.pt, 5.5MB
+
+Validating weights/best.pt...
+YOLO11n summary (fused): 101 layers, 2,582,737 parameters, 0 gradients, 6.3 GFLOPs
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95)
+                   all        144        490      0.909      0.881      0.912      0.635
+             insulator        144        164      0.997          1      0.995      0.968
+             flashover         68        230      0.853      0.757      0.836      0.367
+                broken         75         96      0.878      0.885      0.904      0.569
+Speed: 0.3ms preprocess, 4.4ms inference, 0.0ms loss, 8.5ms postprocess per image
+Results saved to /content/drive/MyDrive/GraduateProject/YOLO_Runs/insulator_mvp_150ep
